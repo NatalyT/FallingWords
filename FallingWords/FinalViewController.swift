@@ -12,6 +12,9 @@ class FinalViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
     
+    @IBAction func playAgain(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegueToGameScreen", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         resultLabel.text = "Result" + "\n" + "2 / 5"

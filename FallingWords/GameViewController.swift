@@ -13,6 +13,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var labelOne: UILabel!
     @IBOutlet weak var labelTwo: UILabel!
     
+    @IBAction func unwindToGameScreen(segue:UIStoryboardSegue) {
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
