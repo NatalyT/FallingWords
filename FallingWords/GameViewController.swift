@@ -16,8 +16,13 @@ class GameViewController: UIViewController {
     @IBAction func unwindToGameScreen(segue:UIStoryboardSegue) {
     }
     
+    var wordsArray: [Word]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        wordsArray = Word.fetchJson()
+        print(wordsArray as Any)
     }
     
     override func viewWillAppear(_ animated: Bool) {

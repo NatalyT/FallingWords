@@ -16,6 +16,7 @@
 		C18E352D217B1245005B3CF5 /* FallingWordsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E352C217B1245005B3CF5 /* FallingWordsUITests.swift */; };
 		C18E353B217B1B12005B3CF5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E353A217B1B12005B3CF5 /* GameViewController.swift */; };
 		C18E353D217B2207005B3CF5 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E353C217B2207005B3CF5 /* FinalViewController.swift */; };
+		C18E353F217B32B1005B3CF5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18E353E217B32B1005B3CF5 /* Word.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C18E352E217B1246005B3CF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C18E353A217B1B12005B3CF5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C18E353C217B2207005B3CF5 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		C18E353E217B32B1005B3CF5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				C18E3513217B1245005B3CF5 /* Assets.xcassets */,
 				C18E3515217B1245005B3CF5 /* LaunchScreen.storyboard */,
 				C18E3518217B1245005B3CF5 /* Info.plist */,
+				C18E353E217B32B1005B3CF5 /* Word.swift */,
 			);
 			path = FallingWords;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				C18E353D217B2207005B3CF5 /* FinalViewController.swift in Sources */,
 				C18E353B217B1B12005B3CF5 /* GameViewController.swift in Sources */,
 				C18E350D217B1244005B3CF5 /* AppDelegate.swift in Sources */,
+				C18E353F217B32B1005B3CF5 /* Word.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
