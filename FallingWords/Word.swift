@@ -18,7 +18,7 @@ struct Word: Codable {
     static func fetchJson() -> [Word]? {
         if let url = URL(string: vocabularyURL) {
             do {
-                let data = try Data(contentsOf: url)
+                let data = try Data(contentsOf: url) 
                 let decoder = JSONDecoder()
                 let jsonData = try decoder.decode([Word].self, from: data)
                 return jsonData

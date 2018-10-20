@@ -71,15 +71,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelTwo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLc-7T-CfI">
-                                <rect key="frame" x="267" y="36" width="92" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="9bp-wc-J7e"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K19-0Q-xGh">
                                 <rect key="frame" x="16" y="593" width="171" height="30"/>
                                 <constraints>
@@ -88,6 +79,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Wrong"/>
+                                <connections>
+                                    <action selector="tapWrongButton:" destination="qUh-Jv-8eE" eventType="touchUpInside" id="Lb0-ZM-wq4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CP-sY-yub">
                                 <rect key="frame" x="187" y="593" width="172" height="30"/>
@@ -97,18 +91,18 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Correct"/>
+                                <connections>
+                                    <action selector="tapCorrectButton:" destination="qUh-Jv-8eE" eventType="touchUpInside" id="upv-DN-NiB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9uV-5r-LMC" firstAttribute="leading" secondItem="1xa-Wc-I1G" secondAttribute="leading" constant="16" id="1uR-ic-7av"/>
                             <constraint firstItem="7CP-sY-yub" firstAttribute="leading" secondItem="K19-0Q-xGh" secondAttribute="trailing" id="4T4-wT-VB5"/>
-                            <constraint firstItem="1xa-Wc-I1G" firstAttribute="trailing" secondItem="zLc-7T-CfI" secondAttribute="trailing" constant="16" id="59b-yT-2A9"/>
-                            <constraint firstItem="zLc-7T-CfI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="1xa-Wc-I1G" secondAttribute="leading" constant="267" id="8xY-2P-jyc"/>
                             <constraint firstItem="K19-0Q-xGh" firstAttribute="top" secondItem="9uV-5r-LMC" secondAttribute="bottom" constant="52" id="Guv-JS-xXt"/>
                             <constraint firstItem="7CP-sY-yub" firstAttribute="leading" secondItem="K19-0Q-xGh" secondAttribute="trailing" id="L8g-Di-7Cs"/>
                             <constraint firstItem="K19-0Q-xGh" firstAttribute="leading" secondItem="1xa-Wc-I1G" secondAttribute="leading" constant="16" id="Ry1-jf-NyM"/>
-                            <constraint firstItem="zLc-7T-CfI" firstAttribute="top" secondItem="1xa-Wc-I1G" secondAttribute="top" constant="16" id="ZxP-AO-mwW"/>
                             <constraint firstItem="1xa-Wc-I1G" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="9uV-5r-LMC" secondAttribute="trailing" constant="266" id="dpq-vQ-YPY"/>
                             <constraint firstItem="1xa-Wc-I1G" firstAttribute="bottom" secondItem="K19-0Q-xGh" secondAttribute="bottom" constant="44" id="hFl-Qs-i2S"/>
                             <constraint firstItem="1xa-Wc-I1G" firstAttribute="bottom" secondItem="7CP-sY-yub" secondAttribute="bottom" constant="44" id="rjq-Ym-hBY"/>
@@ -118,7 +112,6 @@
                     </view>
                     <connections>
                         <outlet property="labelOne" destination="9uV-5r-LMC" id="ijz-Ws-cqR"/>
-                        <outlet property="labelTwo" destination="zLc-7T-CfI" id="XDB-rH-eMT"/>
                         <segue destination="aki-kB-d77" kind="show" identifier="segueToFinalScene" id="1TH-eB-aJU"/>
                     </connections>
                 </viewController>
@@ -134,11 +127,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfW-UE-21m">
-                                <rect key="frame" x="155.5" y="209" width="64" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="flk-pm-zv6"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfW-UE-21m">
+                                <rect key="frame" x="140.5" y="209" width="94" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -162,8 +152,8 @@
                             <constraint firstItem="wfW-UE-21m" firstAttribute="top" secondItem="KQd-TO-L8Z" secondAttribute="top" constant="189" id="Qnh-Ix-ef0"/>
                             <constraint firstItem="wfW-UE-21m" firstAttribute="centerX" secondItem="LzH-wn-hdo" secondAttribute="centerX" id="cV7-1g-eXs"/>
                             <constraint firstItem="z0e-gh-4V4" firstAttribute="centerX" secondItem="LzH-wn-hdo" secondAttribute="centerX" id="ll3-RQ-BSP"/>
-                            <constraint firstItem="wfW-UE-21m" firstAttribute="leading" secondItem="KQd-TO-L8Z" secondAttribute="leading" constant="155.5" id="wik-Ag-CZK"/>
-                            <constraint firstItem="KQd-TO-L8Z" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="wfW-UE-21m" secondAttribute="trailing" constant="155.5" id="xnV-RI-Cry"/>
+                            <constraint firstItem="wfW-UE-21m" firstAttribute="leading" secondItem="KQd-TO-L8Z" secondAttribute="leading" constant="140.5" id="wik-Ag-CZK"/>
+                            <constraint firstItem="KQd-TO-L8Z" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="wfW-UE-21m" secondAttribute="trailing" constant="140.5" id="xnV-RI-Cry"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KQd-TO-L8Z"/>
                     </view>

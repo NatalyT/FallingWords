@@ -16,20 +16,14 @@ class FinalViewController: UIViewController {
         performSegue(withIdentifier: "unwindSegueToGameScreen", sender: self)
     }
     
+    var amountOfWords: Int?
+    var correctAnswers: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultLabel.text = "Result" + "\n" + "2 / 5"
+        if let answers = correctAnswers, let words = amountOfWords {
+            resultLabel.text = "Result" + "\n" + String(answers) + "/" + String(words)
+        }
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
