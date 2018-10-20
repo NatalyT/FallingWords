@@ -9,14 +9,14 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
     @IBOutlet weak var welcomeLabel: UILabel!
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       welcomeLabel.text = "Welcome" + "\n" + "to" + "\n" + "Falling Words" 
+        welcomeLabel.text = "Welcome" + "\n" + "to" + "\n" + "Falling Words" 
     }
-
-
+    
+    
 }
 
