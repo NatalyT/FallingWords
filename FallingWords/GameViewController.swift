@@ -17,20 +17,20 @@ struct WordToShow {
 class GameViewController: UIViewController {
     
     @IBOutlet weak var labelOne: UILabel!
+    @IBOutlet weak var wrongButton: UIButton!
+    @IBOutlet weak var correctButton: UIButton!
     
     @IBAction func tapWrongButton(_ sender: Any) {
         if let w = self.wordToShow {
-            if !self.isCorrectAnswer(word: w) {
-                self.correctAnswers += 1
-            }
+            let correctAnswer = !self.isCorrectAnswer(word: w)
+            updateUIView(correctAnswer: correctAnswer)
         }
     }
     
     @IBAction func tapCorrectButton(_ sender: Any) {
         if let w = self.wordToShow {
-            if self.isCorrectAnswer(word: w) {
-                self.correctAnswers += 1
-            }
+            let correctAnswer = self.isCorrectAnswer(word: w)
+            updateUIView(correctAnswer: correctAnswer)
         }
     }
     
@@ -57,8 +57,8 @@ class GameViewController: UIViewController {
         amountOfShownWords = 0
         correctAnswers = 0
         
-        labelTwo = UILabel(frame: CGRect(x: 275, y: 36, width: 92, height: 27))
-        labelTwo?.textAlignment = .center
+        labelTwo = UILabel(frame: CGRect(x: 225, y: 36, width: 150, height: 27))
+        labelTwo?.textAlignment = .right
         labelTwo?.backgroundColor = .clear
         labelTwo?.font = UIFont.systemFont(ofSize: 22)
         labelTwo?.numberOfLines = 0
@@ -73,12 +73,28 @@ class GameViewController: UIViewController {
         self.labelTwo?.removeFromSuperview()
     }
     
-    func addLabelTwo() {
-        
+    func updateUIView(correctAnswer: Bool) {
+        wrongButton.isEnabled = false
+        correctButton.isEnabled = false
+        wrongButton.backgroundColor = .gray
+        correctButton.backgroundColor = .gray
+        if correctAnswer {
+            labelOne.textColor = .green
+            labelTwo?.textColor = .green
+            self.correctAnswers += 1
+        } else {
+            labelOne.textColor = .red
+            labelTwo?.textColor = .red
+        }
     }
     
     func getWordToShow() {
-        
+        wrongButton.isEnabled = true
+        correctButton.isEnabled = true
+        wrongButton.backgroundColor = .red
+        correctButton.backgroundColor = .green
+        labelOne.textColor = .gray
+        labelTwo?.textColor = .gray
         if amountOfShownWords < amountOfWords {
             amountOfShownWords += 1
             var wordsArray = [Word]()
@@ -89,11 +105,11 @@ class GameViewController: UIViewController {
             }
             randomNumber = Int.random(in: 0 ... 2)
             wordToShow = WordToShow(wordInLanguageOne: wordsArray[0].text_eng ?? "", wordInLanguageTwo: wordsArray[0].text_spa ?? "", wordToDisplay: wordsArray[randomNumber].text_spa ?? "")
-            //            print(wordToShow?.wordInLanguageOne as Any, "   ", wordToShow?.wordInLanguageTwo as Any, "   ", wordToShow?.wordToDisplay as Any)
+            print(wordToShow?.wordInLanguageOne as Any, "   ", wordToShow?.wordInLanguageTwo as Any, "   ", wordToShow?.wordToDisplay as Any)
             
             labelOne.text = wordToShow?.wordInLanguageOne
             labelTwo?.text = wordToShow?.wordToDisplay
-            labelTwo?.frame = CGRect(x: 275, y: 36, width: 100, height: 27)
+            labelTwo?.frame = CGRect(x: 225, y: 36, width: 150, height: 27)
             self.view.layoutIfNeeded()
             addAnimation()
         } else {
@@ -104,9 +120,8 @@ class GameViewController: UIViewController {
     
     func addAnimation() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 5.0, delay: 0.0, options: [], animations: {
+            UIView.animate(withDuration: 4.0, delay: 0.0, options: [], animations: {
                 self.labelTwo?.center.y = self.labelOne.center.y
-                // print(self.labelTwo?.center.y as Any, "    ", self.labelOne.center.y)
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 self.getWordToShow()

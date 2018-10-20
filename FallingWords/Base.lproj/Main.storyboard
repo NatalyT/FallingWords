@@ -62,8 +62,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelOne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uV-5r-LMC">
-                                <rect key="frame" x="16" y="514" width="93" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelOne" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uV-5r-LMC">
+                                <rect key="frame" x="16" y="494" width="93" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="92z-hL-TV0"/>
                                 </constraints>
@@ -72,25 +72,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K19-0Q-xGh">
-                                <rect key="frame" x="16" y="593" width="171" height="30"/>
+                                <rect key="frame" x="16" y="573" width="180" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="AEu-1b-9sJ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="171" id="UMn-jm-tbD"/>
+                                    <constraint firstAttribute="height" constant="50" id="AEu-1b-9sJ"/>
+                                    <constraint firstAttribute="width" constant="180" id="hA5-fm-I9v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Wrong"/>
+                                <state key="normal" title="Wrong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="tapWrongButton:" destination="qUh-Jv-8eE" eventType="touchUpInside" id="Lb0-ZM-wq4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CP-sY-yub">
-                                <rect key="frame" x="187" y="593" width="172" height="30"/>
+                                <rect key="frame" x="179" y="573" width="180" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="jSB-5Y-eL8"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="172" id="xar-mU-fXx"/>
+                                    <constraint firstAttribute="width" constant="180" id="VtO-D4-kFE"/>
+                                    <constraint firstAttribute="height" constant="50" id="jSB-5Y-eL8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Correct"/>
+                                <state key="normal" title="Correct">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="tapCorrectButton:" destination="qUh-Jv-8eE" eventType="touchUpInside" id="upv-DN-NiB"/>
                                 </connections>
@@ -99,19 +103,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9uV-5r-LMC" firstAttribute="leading" secondItem="1xa-Wc-I1G" secondAttribute="leading" constant="16" id="1uR-ic-7av"/>
-                            <constraint firstItem="7CP-sY-yub" firstAttribute="leading" secondItem="K19-0Q-xGh" secondAttribute="trailing" id="4T4-wT-VB5"/>
                             <constraint firstItem="K19-0Q-xGh" firstAttribute="top" secondItem="9uV-5r-LMC" secondAttribute="bottom" constant="52" id="Guv-JS-xXt"/>
-                            <constraint firstItem="7CP-sY-yub" firstAttribute="leading" secondItem="K19-0Q-xGh" secondAttribute="trailing" id="L8g-Di-7Cs"/>
                             <constraint firstItem="K19-0Q-xGh" firstAttribute="leading" secondItem="1xa-Wc-I1G" secondAttribute="leading" constant="16" id="Ry1-jf-NyM"/>
                             <constraint firstItem="1xa-Wc-I1G" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="9uV-5r-LMC" secondAttribute="trailing" constant="266" id="dpq-vQ-YPY"/>
                             <constraint firstItem="1xa-Wc-I1G" firstAttribute="bottom" secondItem="K19-0Q-xGh" secondAttribute="bottom" constant="44" id="hFl-Qs-i2S"/>
+                            <constraint firstItem="1xa-Wc-I1G" firstAttribute="trailing" secondItem="7CP-sY-yub" secondAttribute="trailing" constant="16" id="qbv-6v-jTd"/>
                             <constraint firstItem="1xa-Wc-I1G" firstAttribute="bottom" secondItem="7CP-sY-yub" secondAttribute="bottom" constant="44" id="rjq-Ym-hBY"/>
-                            <constraint firstItem="1xa-Wc-I1G" firstAttribute="trailing" secondItem="7CP-sY-yub" secondAttribute="trailing" constant="16" id="xlm-BF-85R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1xa-Wc-I1G"/>
                     </view>
                     <connections>
+                        <outlet property="correctButton" destination="7CP-sY-yub" id="dTn-DA-60P"/>
                         <outlet property="labelOne" destination="9uV-5r-LMC" id="ijz-Ws-cqR"/>
+                        <outlet property="wrongButton" destination="K19-0Q-xGh" id="NSg-TG-t9V"/>
                         <segue destination="aki-kB-d77" kind="show" identifier="segueToFinalScene" id="1TH-eB-aJU"/>
                     </connections>
                 </viewController>
