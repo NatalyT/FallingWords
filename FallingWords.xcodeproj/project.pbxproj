@@ -53,6 +53,7 @@
 		C18E353A217B1B12005B3CF5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C18E353C217B2207005B3CF5 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		C18E353E217B32B1005B3CF5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		C18E3544217C67A5005B3CF5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +113,7 @@
 				C18E3515217B1245005B3CF5 /* LaunchScreen.storyboard */,
 				C18E3518217B1245005B3CF5 /* Info.plist */,
 				C18E353E217B32B1005B3CF5 /* Word.swift */,
+				C18E3544217C67A5005B3CF5 /* README.md */,
 			);
 			path = FallingWords;
 			sourceTree = "<group>";
