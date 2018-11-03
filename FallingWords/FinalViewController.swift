@@ -22,7 +22,7 @@ class FinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let answers = correctAnswers, let words = amountOfWords {
-            resultLabel.text = "Result" + "\n" + String(answers) + "/" + String(words)
+            resultLabel.text = "Result\n\(String(answers)) / \(String(words))"
         }
     }
     
