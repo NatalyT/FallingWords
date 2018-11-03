@@ -14,7 +14,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeLabel.text = "Welcome" + "\n" + "to" + "\n" + "Falling Words" 
+        welcomeLabel.text = "Welcome\nto\nFalling Words" 
     }
     
     

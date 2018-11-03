@@ -21,17 +21,11 @@ class GameViewController: UIViewController {
     @IBOutlet weak var correctButton: UIButton!
     
     @IBAction func tapWrongButton(_ sender: Any) {
-        if let w = self.wordToShow {
-            let correctAnswer = !self.isCorrectAnswer(word: w)
-            updateUIView(correctAnswer: correctAnswer)
-        }
+        updateUIView(correctAnswer: !self.isCorrectAnswer(currentWord: self.wordToShow!))
     }
     
     @IBAction func tapCorrectButton(_ sender: Any) {
-        if let w = self.wordToShow {
-            let correctAnswer = self.isCorrectAnswer(word: w)
-            updateUIView(correctAnswer: correctAnswer)
-        }
+        updateUIView(correctAnswer: self.isCorrectAnswer(currentWord: self.wordToShow!))
     }
     
     @IBAction func unwindToGameScreen(segue:UIStoryboardSegue) {
@@ -129,7 +123,10 @@ class GameViewController: UIViewController {
         }
     }
     
-    func isCorrectAnswer(word: WordToShow) -> Bool {
+    func isCorrectAnswer(currentWord: WordToShow?) -> Bool {
+        guard let word = currentWord else {
+            return false
+        }
         return word.wordInLanguageTwo == word.wordToDisplay
     }
     
