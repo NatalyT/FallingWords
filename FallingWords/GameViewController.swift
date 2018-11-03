@@ -40,6 +40,7 @@ class GameViewController: UIViewController {
     var fallingWord: UILabel?
     let fallingWordDefaultFrame = CGRect(x: 225, y: 36, width: 150, height: 27)
     let fallingWordFontSize: CGFloat = 22
+    let randomWordsAmount = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,14 +97,14 @@ class GameViewController: UIViewController {
         
         if amountOfShownWords < amountOfWords {
             amountOfShownWords += 1
-            var wordsArray = [Word]()
-            var randomNumber = 0
-            for _ in 0 ... 2 {
-                randomNumber = Int.random(in: 0 ..< wordsArrayFromJSON.count)
-                wordsArray.append(wordsArrayFromJSON[randomNumber])
-            }
-            randomNumber = Int.random(in: 0 ... 2)
-            wordToShow = WordToShow(wordInLanguageOne: wordsArray[0].text_eng ?? "", wordInLanguageTwo: wordsArray[0].text_spa ?? "", wordToDisplay: wordsArray[randomNumber].text_spa ?? "")
+            let wordsArray = findRandomWords()
+            let correctWord = wordsArray[0]
+            let wordToDisplay = wordsArray[Int.random(in: 0 ... randomWordsAmount)]
+            wordToShow = WordToShow(
+                wordInLanguageOne: correctWord.text_eng!,
+                wordInLanguageTwo: correctWord.text_spa!,
+                wordToDisplay: wordToDisplay.text_spa!
+            )
             print(wordToShow?.wordInLanguageOne as Any, "   ", wordToShow?.wordInLanguageTwo as Any, "   ", wordToShow?.wordToDisplay as Any)
             
             fixedWord.text = wordToShow?.wordInLanguageOne
@@ -114,6 +115,15 @@ class GameViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "segueToFinalScene", sender: self)
         }
+    }
+    
+    func findRandomWords() -> [Word] {
+        var wordsArray = [Word]()
+        for _ in 0 ... randomWordsAmount {
+            let randomNumber = Int.random(in: 0 ..< wordsArrayFromJSON.count)
+            wordsArray.append(wordsArrayFromJSON[randomNumber])
+        }
+        return wordsArray
     }
     
     func addAnimation() {
