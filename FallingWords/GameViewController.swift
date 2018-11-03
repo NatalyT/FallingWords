@@ -75,27 +75,25 @@ class GameViewController: UIViewController {
     }
     
     func updateUIView(correctAnswer: Bool) {
-        wrongButton.isEnabled = false
-        correctButton.isEnabled = false
-        wrongButton.backgroundColor = .gray
-        correctButton.backgroundColor = .gray
+        disableButtons()
+        
         if correctAnswer {
-            fixedWord.textColor = .green
-            fallingWord?.textColor = .green
+            setWordsColor(.green)
             self.correctAnswers += 1
         } else {
-            fixedWord.textColor = .red
-            fallingWord?.textColor = .red
+            setWordsColor(.red)
         }
     }
     
+    private func setWordsColor(_ color: UIColor) {
+        fixedWord.textColor = color
+        fallingWord?.textColor = color
+    }
+
     func getWordToShow() {
-        wrongButton.isEnabled = true
-        correctButton.isEnabled = true
-        wrongButton.backgroundColor = .red
-        correctButton.backgroundColor = .green
-        fixedWord.textColor = .gray
-        fallingWord?.textColor = .gray
+        enableButtons()
+        setWordsColor(.gray)
+        
         if amountOfShownWords < amountOfWords {
             amountOfShownWords += 1
             var wordsArray = [Word]()
@@ -116,7 +114,6 @@ class GameViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "segueToFinalScene", sender: self)
         }
-        
     }
     
     func addAnimation() {
@@ -146,6 +143,23 @@ class GameViewController: UIViewController {
                 destinationVC.amountOfWords = amountOfWords
             }
         }
+    }
+    
+    
+    fileprivate func enableButtons() {
+        wrongButton.isEnabled = true
+        wrongButton.backgroundColor = .red
+        
+        correctButton.isEnabled = true
+        correctButton.backgroundColor = .green
+    }
+    
+    fileprivate func disableButtons() {
+        wrongButton.isEnabled = false
+        wrongButton.backgroundColor = .gray
+        
+        correctButton.isEnabled = false
+        correctButton.backgroundColor = .gray
     }
     
 }
