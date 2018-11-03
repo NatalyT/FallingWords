@@ -16,7 +16,7 @@ struct WordToShow {
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var labelOne: UILabel!
+    @IBOutlet weak var fixedWord: UILabel!
     @IBOutlet weak var wrongButton: UIButton!
     @IBOutlet weak var correctButton: UIButton!
     
@@ -80,11 +80,11 @@ class GameViewController: UIViewController {
         wrongButton.backgroundColor = .gray
         correctButton.backgroundColor = .gray
         if correctAnswer {
-            labelOne.textColor = .green
+            fixedWord.textColor = .green
             fallingWord?.textColor = .green
             self.correctAnswers += 1
         } else {
-            labelOne.textColor = .red
+            fixedWord.textColor = .red
             fallingWord?.textColor = .red
         }
     }
@@ -94,7 +94,7 @@ class GameViewController: UIViewController {
         correctButton.isEnabled = true
         wrongButton.backgroundColor = .red
         correctButton.backgroundColor = .green
-        labelOne.textColor = .gray
+        fixedWord.textColor = .gray
         fallingWord?.textColor = .gray
         if amountOfShownWords < amountOfWords {
             amountOfShownWords += 1
@@ -108,7 +108,7 @@ class GameViewController: UIViewController {
             wordToShow = WordToShow(wordInLanguageOne: wordsArray[0].text_eng ?? "", wordInLanguageTwo: wordsArray[0].text_spa ?? "", wordToDisplay: wordsArray[randomNumber].text_spa ?? "")
             print(wordToShow?.wordInLanguageOne as Any, "   ", wordToShow?.wordInLanguageTwo as Any, "   ", wordToShow?.wordToDisplay as Any)
             
-            labelOne.text = wordToShow?.wordInLanguageOne
+            fixedWord.text = wordToShow?.wordInLanguageOne
             fallingWord?.text = wordToShow?.wordToDisplay
             fallingWord?.frame = fallingWordDefaultFrame
             self.view.layoutIfNeeded()
@@ -122,7 +122,7 @@ class GameViewController: UIViewController {
     func addAnimation() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 4.0, delay: 0.0, options: [], animations: {
-                self.fallingWord?.center.y = self.labelOne.center.y
+                self.fallingWord?.center.y = self.fixedWord.center.y
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 self.getWordToShow()
