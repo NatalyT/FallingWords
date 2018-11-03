@@ -33,11 +33,13 @@ class GameViewController: UIViewController {
     
     var wordsArrayFromJSON = [Word]()
     var wordToShow: WordToShow?
-    let amountOfWords: Int = 10
+    let amountOfWords: Int = 3
     var amountOfShownWords: Int = 0
     var correctAnswers: Int = 0
     
-    var labelTwo: UILabel?
+    var fallingWord: UILabel?
+    let fallingWordDefaultFrame = CGRect(x: 225, y: 36, width: 150, height: 27)
+    let fallingWordFontSize: CGFloat = 22
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,20 +53,25 @@ class GameViewController: UIViewController {
         amountOfShownWords = 0
         correctAnswers = 0
         
-        labelTwo = UILabel(frame: CGRect(x: 225, y: 36, width: 150, height: 27))
-        labelTwo?.textAlignment = .right
-        labelTwo?.backgroundColor = .clear
-        labelTwo?.font = UIFont.systemFont(ofSize: 22)
-        labelTwo?.numberOfLines = 0
-        labelTwo?.lineBreakMode = .byWordWrapping
-        labelTwo?.sizeToFit()
-        self.view.addSubview(labelTwo!)
+        fallingWord = initFallingWord()
+        self.view.addSubview(fallingWord!)
         
         getWordToShow()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.labelTwo?.removeFromSuperview()
+        self.fallingWord?.removeFromSuperview()
+    }
+    
+    func initFallingWord() -> UILabel {
+        let word = UILabel(frame: fallingWordDefaultFrame)
+        word.textAlignment = .right
+        word.backgroundColor = .clear
+        word.font = UIFont.systemFont(ofSize: fallingWordFontSize)
+        word.numberOfLines = 0
+        word.lineBreakMode = .byWordWrapping
+        word.sizeToFit()
+        return word
     }
     
     func updateUIView(correctAnswer: Bool) {
@@ -74,11 +81,11 @@ class GameViewController: UIViewController {
         correctButton.backgroundColor = .gray
         if correctAnswer {
             labelOne.textColor = .green
-            labelTwo?.textColor = .green
+            fallingWord?.textColor = .green
             self.correctAnswers += 1
         } else {
             labelOne.textColor = .red
-            labelTwo?.textColor = .red
+            fallingWord?.textColor = .red
         }
     }
     
@@ -88,7 +95,7 @@ class GameViewController: UIViewController {
         wrongButton.backgroundColor = .red
         correctButton.backgroundColor = .green
         labelOne.textColor = .gray
-        labelTwo?.textColor = .gray
+        fallingWord?.textColor = .gray
         if amountOfShownWords < amountOfWords {
             amountOfShownWords += 1
             var wordsArray = [Word]()
@@ -102,8 +109,8 @@ class GameViewController: UIViewController {
             print(wordToShow?.wordInLanguageOne as Any, "   ", wordToShow?.wordInLanguageTwo as Any, "   ", wordToShow?.wordToDisplay as Any)
             
             labelOne.text = wordToShow?.wordInLanguageOne
-            labelTwo?.text = wordToShow?.wordToDisplay
-            labelTwo?.frame = CGRect(x: 225, y: 36, width: 150, height: 27)
+            fallingWord?.text = wordToShow?.wordToDisplay
+            fallingWord?.frame = fallingWordDefaultFrame
             self.view.layoutIfNeeded()
             addAnimation()
         } else {
@@ -115,7 +122,7 @@ class GameViewController: UIViewController {
     func addAnimation() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 4.0, delay: 0.0, options: [], animations: {
-                self.labelTwo?.center.y = self.labelOne.center.y
+                self.fallingWord?.center.y = self.labelOne.center.y
                 self.view.layoutIfNeeded()
             }, completion: { (finished: Bool) in
                 self.getWordToShow()
